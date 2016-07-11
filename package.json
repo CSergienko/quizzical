@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "serve": "cd project && python manage.py runserver",
-    "migrate": "cd project && python manage.py migrate"
+    "migrate": "cd project && python manage.py migrate",
+    "setup": "virtualenv ve && . ./ve/bin/activate && pip install -r requirements.pip && nvm use && npm install"
   },
   "repository": {
     "type": "git",
