@@ -1,0 +1,11 @@
+node_modules
+bower_components
+.sass-cache/
+npm-debug.log
+.DS_Store
+*.orig
+*.pyc
+*.swp
+db.sqlite3
+local_settings.py
+ve
