@@ -1,4 +1,5 @@
 <!doctype html>
+{% load render_bundle from webpack_loader %}
 <html>
     <head>
         <meta charset="utf-8">
@@ -17,5 +18,9 @@
         {% else %}
             <p>No questions available.</p>
         {% endif %}
+
+        <div id="quizzical-app"></div>
+
+    {% render_bundle 'main' %}
     </body>
 </html>

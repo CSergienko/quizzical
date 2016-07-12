@@ -1,12 +1,12 @@
-from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponseRedirect, HttpResponse, Http404
-from django.core.urlresolvers import reverse
-from django.views import generic
 from django.contrib.auth.models import User, Group
+from django.core.urlresolvers import reverse
+from django.http import HttpResponseRedirect
+from django.shortcuts import render, get_object_or_404
+from django.views import generic
 from rest_framework import viewsets
-from quizzical.serializers import UserSerializer, GroupSerializer
 
-from .models import Question, Choice
+from quizzical.serializers import UserSerializer, GroupSerializer, QuestionSerializer, ChoiceSerializer
+from quizzical.models import Question, Choice
 
 
 class IndexView(generic.ListView):
@@ -54,3 +54,12 @@ class UserViewSet(viewsets.ModelViewSet):
 class GroupViewSet(viewsets.ModelViewSet):
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
+
+class QuestionViewSet(viewsets.ModelViewSet):
+    queryset = Question.objects.all()
+    serializer_class = QuestionSerializer
+
+class ChoiceViewSet(viewsets.ModelViewSet):
+    queryset = Choice.objects.all()
+    serializer_class = ChoiceSerializer
+
