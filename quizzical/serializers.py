@@ -19,7 +19,7 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
 class QuestionSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Question
-        fields = ('question_text', 'pub_date')
+        fields = ('question_text', 'id')
 
 
 class ChoiceSerializer(serializers.HyperlinkedModelSerializer):

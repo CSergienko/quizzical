@@ -9,20 +9,13 @@ class Question extends Component {
         this.props.actions.completeTestAsync(this.props.question.id)
     }
 
-    handleDelete() {
-        this.props.actions.deleteTest(this.props.question.id)
-    }
-
     render() {
         return (
           <li>
-            <div>{this.props.question.text}</div>
-            <button
-                onClick={this.handleComplete.bind(this)}>Run test</button>
+            <div>{this.props.question.question_text}</div>
           </li>
         )
     }
-
 }
 
 export default Question

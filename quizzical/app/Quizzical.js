@@ -5,19 +5,21 @@ import { render } from 'react-dom';
 import { Router, Route, Link, useRouterHistory, browserHistory } from 'react-router';
 import { createHistory, useBasename } from 'history';
 import App from './components/App';
-import Tests from './components/Tests';
+import QuestionList from './components/QuestionList';
 import PageNotFound from './components/PageNotFound';
 import configureStore from './redux/store';
 import { Provider } from 'react-redux';
 import { syncHistoryWithStore } from 'react-router-redux'
 
+
+/* eslint-disable */
 let initialState = {
     questions: [{
         id: 0,
-        completed: false,
-        text: 'Test DSL connection'
+        question_text: 'Sample question'
     }]
 }
+/* eslint-enable */
 
 let store = configureStore(initialState);
 
@@ -39,7 +41,7 @@ const history = syncHistoryWithStore(browserHistory, store)
 
 const routes =
 <Route path='/' component={App}>
-    <Route path="tests" component={Tests} />
+    <Route path="questions" component={QuestionList} />
     <Route path="*" component={PageNotFound} />
 </Route>;
 

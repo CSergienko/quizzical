@@ -1,51 +1,62 @@
-let actions = {
-    addTest: function(text) {
+import reqwest from 'reqwest'
+
+let actions;
+actions = {
+    addTest: function (text) {
         return {
             type: 'ADD_TEST',
             text: text
         }
     },
 
-    deleteTest: function(id) {
+    deleteTest: function (id) {
         return {
             type: 'DELETE_TEST',
             id: id
         }
     },
 
-    runTest: function(id) {
+    runTest: function (id) {
         return {
             type: 'RUN_TEST',
             id: id
         }
     },
 
-    completeTest: function(id) {
+    updateQuestions: function (questions) {
+        return {
+            type: 'GET_QUESTIONS',
+            questions: questions
+        }
+    },
+
+    completeTest: function (id) {
         return {
             type: 'COMPLETE_TEST',
             id: id
         }
     },
 
-    createNewUserIdIfOdd: function() {
-        return (dispatch, getState) => {
-            const { user } = getState()
-            if (user.id % 2 === 0) {
-                return
-            }
-            dispatch(actions.createNewUserId())
-        }
-    },
-
-    completeTestAsync: function(id) {
+    completeTestAsync: function (id) {
         return (dispatch) => {
             dispatch(actions.runTest(id))
             setTimeout(() => {
                 dispatch(actions.completeTest(id))
             }, 2500)
         }
+    },
+
+    getQuestionAsync: function () {
+        return (dispatch) => {
+            reqwest({
+                url: '/api/questions/?format=json'
+            })
+                .then(function (resp) {
+                    dispatch(actions.updateQuestions(resp.results));
+                });
+        }
     }
-}
+};
 
 export default actions
 /**

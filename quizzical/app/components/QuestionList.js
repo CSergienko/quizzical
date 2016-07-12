@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux'
 import actions from '../redux/actions'
 import Question from './Question'
 
-class Tests extends Component {
+class QuestionList extends Component {
 
     render() {
         return (
@@ -35,4 +35,4 @@ function mapDispatchToProps(dispatch) {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Tests);
+export default connect(mapStateToProps, mapDispatchToProps)(QuestionList);

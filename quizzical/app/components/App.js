@@ -11,6 +11,11 @@ import actions from '../redux/actions';
 
 class App extends Component {
 
+    constructor(props) {
+        super(props);
+        this.props.actions.getQuestionAsync();
+    }
+
     render() {
         return (
         <div>

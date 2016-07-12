@@ -11,31 +11,8 @@ function getId(questions) {
 
 let questionsReducer = function(questions = [], action) {
     switch (action.type) {
-    case 'ADD_TEST':
-        return [{
-            text: action.text,
-            completed: false,
-            id: getId(questions)
-        }, ...questions]
-    case 'RUN_TEST':
-        return questions.map((test) => {
-            return test.id === action.id ?
-                Object.assign({}, test, {
-                    text: 'running test...'
-                }) : test
-        })
-    case 'COMPLETE_TEST':
-        return questions.map((test) => {
-            return test.id === action.id ?
-                Object.assign({}, test, {
-                    completed: !test.completed,
-                    text: 'test complete!'
-                }) : test
-        })
-    case 'DELETE_TEST':
-        return questions.filter((test) => {
-            return test.id !== action.id
-        })
+    case 'GET_QUESTIONS':
+        return Object.assign([], questions, action.questions);
     default:
         return questions
     }
