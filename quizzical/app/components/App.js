@@ -3,7 +3,6 @@
  */
 import React, { Component } from 'react';
 import CategoryList from './CategoryList';
-import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import actions from '../redux/actions';
@@ -12,7 +11,7 @@ class App extends Component {
 
     constructor(props) {
         super(props);
-        this.props.actions.getQuestionAsync();
+        this.props.actions.getCategoryAsync();
     }
 
     render() {

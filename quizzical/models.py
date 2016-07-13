@@ -9,6 +9,7 @@ from django.utils import timezone
 class Question(models.Model):
     question_text = models.CharField(max_length=100)
     pub_date = models.DateTimeField("date published")
+    category = models.ForeignKey("Category", on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return self.question_text
@@ -18,6 +19,13 @@ class Question(models.Model):
     was_published_recently.admin_order_field = 'pub_date'
     was_published_recently.boolean = True
     was_published_recently.short_description = 'Published recently?'
+
+
+class Category(models.Model):
+    category_text = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.category_text
 
 
 class Choice(models.Model):

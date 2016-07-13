@@ -12,7 +12,7 @@ function getId(questions) {
 let questionsReducer = function(questions = [], action) {
     switch (action.type) {
     case 'GET_QUESTIONS':
-        return Object.assign([], questions, action.questions);
+        return Object.assign([], action.questions);
     default:
         return questions
     }

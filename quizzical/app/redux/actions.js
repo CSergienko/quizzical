@@ -2,26 +2,6 @@ import reqwest from 'reqwest'
 
 let actions;
 actions = {
-    addTest: function (text) {
-        return {
-            type: 'ADD_TEST',
-            text: text
-        }
-    },
-
-    deleteTest: function (id) {
-        return {
-            type: 'DELETE_TEST',
-            id: id
-        }
-    },
-
-    runTest: function (id) {
-        return {
-            type: 'RUN_TEST',
-            id: id
-        }
-    },
 
     updateQuestions: function (questions) {
         return {
@@ -30,29 +10,42 @@ actions = {
         }
     },
 
-    completeTest: function (id) {
+    updateCategories: function (categories) {
         return {
-            type: 'COMPLETE_TEST',
-            id: id
+            type: 'GET_CATEGORIES',
+            categories: categories
         }
     },
 
-    completeTestAsync: function (id) {
-        return (dispatch) => {
-            dispatch(actions.runTest(id))
-            setTimeout(() => {
-                dispatch(actions.completeTest(id))
-            }, 2500)
-        }
-    },
-
-    getQuestionAsync: function () {
+    getQuestionAsync: function (categoryId) {
         return (dispatch) => {
             reqwest({
-                url: '/api/questions/?format=json'
+                url: '/api/questions/',
+                data: [
+                    {
+                        name: 'format',
+                        value: 'json'
+                    },
+                    {
+                        name: 'category',
+                        value: categoryId
+                    }
+                ]
             })
                 .then(function (resp) {
                     dispatch(actions.updateQuestions(resp.results));
+                });
+        }
+    },
+
+    getCategoryAsync: function () {
+        return (dispatch) => {
+            reqwest({
+                url: '/api/categories/',
+                data: [{name: 'format', value: 'json'}]
+            })
+                .then(function (resp) {
+                    dispatch(actions.updateCategories(resp.results));
                 });
         }
     }

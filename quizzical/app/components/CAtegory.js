@@ -5,17 +5,14 @@
  * Created by peterringelmann on 2016/07/12.
  */
 import React, { Component } from 'react'
+import { Link } from 'react-router';
 
 class Category extends Component {
-
-    handleComplete() {
-        this.props.actions.completeTestAsync(this.props.category.id)
-    }
 
     render() {
         return (
           <li>
-            <div>{this.props.category.category_text}</div>
+              <Link to={'/questions/' + this.props.category.id + '/'}>{this.props.category.category_text}</Link>
           </li>
         )
     }

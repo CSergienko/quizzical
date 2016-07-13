@@ -5,8 +5,9 @@ from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from rest_framework import viewsets
 
-from quizzical.serializers import UserSerializer, GroupSerializer, QuestionSerializer, ChoiceSerializer
-from quizzical.models import Question, Choice
+from quizzical.serializers import UserSerializer, GroupSerializer, QuestionSerializer, ChoiceSerializer, \
+                                  CategorySerializer
+from quizzical.models import Question, Choice, Category
 
 
 class IndexView(generic.ListView):
@@ -59,7 +60,19 @@ class QuestionViewSet(viewsets.ModelViewSet):
     queryset = Question.objects.all()
     serializer_class = QuestionSerializer
 
+    def get_queryset(self):
+        queryset = self.queryset
+        category = self.request.query_params.get('category', None)
+        if category is not None:
+            queryset = queryset.filter(category__pk=category)
+        return queryset
+
+
 class ChoiceViewSet(viewsets.ModelViewSet):
     queryset = Choice.objects.all()
     serializer_class = ChoiceSerializer
+
+class CategoryViewSet(viewsets.ModelViewSet):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
 

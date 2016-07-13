@@ -43,9 +43,10 @@ function add2(x){
 
 const history = syncHistoryWithStore(browserHistory, store)
 
+
 const routes =
 <Route path='/' component={App}>
-    <Route path="questions" component={QuestionList} />
+    <Route path="questions/:id/" component={QuestionList}/>
     <Route path="*" component={PageNotFound} />
 </Route>;
 
