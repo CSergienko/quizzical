@@ -9,3 +9,4 @@ npm-debug.log
 db.sqlite3
 local_settings.py
 ve
+webpack-quizzical-map.json
