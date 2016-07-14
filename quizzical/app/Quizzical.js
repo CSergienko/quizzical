@@ -17,11 +17,16 @@ import { syncHistoryWithStore } from 'react-router-redux'
 let initialState = {
     categories: [{
         id: 0,
-        category_text: 'category A'
+        category_text: ''
     }],
     questions: [{
         id: 0,
-        question_text: 'Sample question'
+        question_text: '',
+        choice_set: [{
+            id: 0,
+            choice_text: '',
+            votes: 0
+        }]
     }]
 }
 /* eslint-enable */

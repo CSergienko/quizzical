@@ -8,7 +8,6 @@ class CategoryList extends Component {
 
     constructor(props) {
         super(props);
-        console.log('constructed');
         this.props.actions.getCategoryAsync();
     }
 

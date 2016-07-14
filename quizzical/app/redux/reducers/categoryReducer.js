@@ -4,8 +4,8 @@
  * @return {int} new ID
  */
 function getId(categories) {
-    return categories.reduce((maxId, test) => {
-        return Math.max(test.id, maxId)
+    return categories.reduce((maxId, category) => {
+        return Math.max(category.id, maxId)
     }, -1) + 1
 }
 

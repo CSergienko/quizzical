@@ -72,6 +72,13 @@ class ChoiceViewSet(viewsets.ModelViewSet):
     queryset = Choice.objects.all()
     serializer_class = ChoiceSerializer
 
+    def get_queryset(self):
+        queryset = self.queryset
+        question = self.request.query_params.get('question', None)
+        if question is not None:
+            queryset = queryset.filter(question__pk=question)
+        return queryset
+
 class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer

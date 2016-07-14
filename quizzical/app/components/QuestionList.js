@@ -21,6 +21,10 @@ class QuestionList extends Component {
         }
     }
 
+    componentWillUnmount() {
+        this.props.actions.updateQuestions([]);
+    }
+
     render() {
         return (
             <div>
@@ -28,7 +32,9 @@ class QuestionList extends Component {
                 <ul>
                     {
                         this.props.questions.map((question) => {
-                            return <Question key={question.id} question={question} actions={this.props.actions}/>
+                            return (
+                                <Question key={question.id} question={question} actions={this.props.actions}/>
+                            )
                         })
                     }
                  </ul>
