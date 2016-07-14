@@ -64,7 +64,7 @@ class QuestionViewSet(viewsets.ModelViewSet):
         queryset = self.queryset
         category = self.request.query_params.get('category', None)
         if category is not None:
-            queryset = queryset.filter(category__pk=category)
+            queryset = queryset.filter(category__slug=category)
         return queryset
 
 
