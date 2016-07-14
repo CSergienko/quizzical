@@ -16,7 +16,7 @@ class CategoryList extends Component {
                             return <Category key={category.id} category={category} actions={this.props.actions}/>
                         })
                     }
-                 </ul>
+                </ul>
             </div>
         )
     }

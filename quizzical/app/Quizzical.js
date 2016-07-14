@@ -9,8 +9,9 @@ import QuestionList from './components/QuestionList';
 import PageNotFound from './components/PageNotFound';
 import configureStore from './redux/store';
 import { Provider } from 'react-redux';
-import { syncHistoryWithStore } from 'react-router-redux'
+import { syncHistoryWithStore } from 'react-router-redux';
 
+require('./Quizzical.scss');
 
 /* eslint-disable */
 let initialState = {
