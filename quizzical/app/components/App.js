@@ -2,7 +2,6 @@
  * Created by peterringelmann on 2016/07/12.
  */
 import React, { Component } from 'react';
-import CategoryList from './CategoryList';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import actions from '../redux/actions';
@@ -11,13 +10,11 @@ class App extends Component {
 
     constructor(props) {
         super(props);
-        this.props.actions.getCategoryAsync();
     }
 
     render() {
         return (
         <div>
-            <CategoryList/>
             {this.props.children}
         </div>
         )

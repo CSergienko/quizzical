@@ -2,9 +2,10 @@
 
 import React from 'react';
 import { render } from 'react-dom';
-import { Router, Route, Link, useRouterHistory, browserHistory } from 'react-router';
+import { IndexRoute, Router, Route, Link, useRouterHistory, browserHistory } from 'react-router';
 import { createHistory, useBasename } from 'history';
 import App from './components/App';
+import CategoryList from './components/CategoryList';
 import QuestionList from './components/QuestionList';
 import PageNotFound from './components/PageNotFound';
 import configureStore from './redux/store';
@@ -16,7 +17,7 @@ import { syncHistoryWithStore } from 'react-router-redux'
 let initialState = {
     categories: [{
         id: 0,
-        category_text: 'categroy A'
+        category_text: 'category A'
     }],
     questions: [{
         id: 0,
@@ -46,6 +47,7 @@ const history = syncHistoryWithStore(browserHistory, store)
 
 const routes =
 <Route path='/' component={App}>
+    <IndexRoute component={CategoryList} />
     <Route path="questions/:id/" component={QuestionList}/>
     <Route path="*" component={PageNotFound} />
 </Route>;
