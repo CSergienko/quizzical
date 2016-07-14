@@ -60,17 +60,16 @@ module.exports = {
             },
             {
                 'test': /\.s[a|c]ss$/,
-                'loader': 'style?singleton!css?sourceMap!postcss-loader!sass?sourceMap',
+                'loader': 'style!css!sass',
                 'exclude': excludes
             },
             {
                 'test': /\.js$/,
                 'loader': 'babel',
                 'exclude': excludes,
-                'query':
-                 {
-                     'presets': ['es2015', 'react', 'stage-0', 'react-hmre']
-                 }
+                'query': {
+                    'presets': ['es2015', 'react', 'stage-0', 'react-hmre']
+                }
             }
 
         ]
