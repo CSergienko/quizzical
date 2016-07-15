@@ -31,17 +31,18 @@ class QuestionList extends Component {
                 <h1>Questions</h1>
                 <ul>
                     {
-                        this.props.questions.map((question) => {
-                            return (
-                                <Question key={question.id} question={question} actions={this.props.actions}/>
-                            )
+                        this.props.questions.map((question, index) => {
+                            if (parseInt(this.props.params.id) === index) {
+                                return (
+                                    <Question key={index} question={question} actions={this.props.actions}/>
+                                )
+                            }
                         })
                     }
                  </ul>
             </div>
         )
     }
-
 }
 
 function mapStateToProps(state) {

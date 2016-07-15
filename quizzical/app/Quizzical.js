@@ -53,7 +53,7 @@ const history = syncHistoryWithStore(browserHistory, store)
 const routes =
 <Route path='/' component={App}>
     <IndexRoute component={CategoryList} />
-    <Route path="questions/:category/" component={QuestionList}/>
+    <Route path="questions/:category/:id/" component={QuestionList}/>
     <Route path="*" component={PageNotFound} />
 </Route>;
 

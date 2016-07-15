@@ -12,7 +12,7 @@ class Category extends Component {
     render() {
         return (
           <li>
-              <Link to={'/questions/' + this.props.category.slug + '/'}>{this.props.category.category_text}</Link>
+              <Link to={'/questions/' + this.props.category.slug + '/0/'}>{this.props.category.category_text}</Link>
           </li>
         )
     }
