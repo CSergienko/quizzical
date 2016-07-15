@@ -32,4 +32,4 @@ class QuestionSerializer(serializers.ModelSerializer):
 class CategorySerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Category
-        fields = ('id', 'category_text')
+        fields = ('id', 'category_text', 'slug')
