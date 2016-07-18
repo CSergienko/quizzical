@@ -8,16 +8,17 @@ class CategoryList extends Component {
 
     render() {
         return (
-            <div>
-                <h1>Categories</h1>
-                <ul>
-                    {
-                        this.props.categories.map((category) => {
-                            return <Category key={category.id} category={category} actions={this.props.actions}/>
-                        })
-                    }
-                </ul>
-            </div>
+            <section className="Categories">
+                {
+                    this.props.categories.map((category) => {
+                        return (
+                            <article className="Categories-item">
+                                <Category key={category.id} category={category} actions={this.props.actions}/>
+                            </article>
+                        )
+                    })
+                }
+            </section>
         )
     }
 

@@ -23,16 +23,19 @@ class QuestionList extends Component {
 
     render() {
         return (
-            <div>
-                <h1>Questions</h1>
-                <ul>
-                    {
-                        this.props.questions.map((question) => {
-                            return <Question key={question.id} question={question} actions={this.props.actions}/>
-                        })
-                    }
-                 </ul>
-            </div>
+            <section class="Questions">
+                {
+                    this.props.questions.map((question) => {
+                        return (
+                            <div class="Questions-item">
+                                <form action="">
+                                    <Question key={question.id} question={question} actions={this.props.actions}/>
+                                </form>
+                            </div>
+                        )
+                    })
+                }
+            </section>
         )
     }
 

@@ -7,20 +7,15 @@
         <title>{% block title %}Quizzical{% endblock %}</title>
         {% load staticfiles %}
 
+        <link href='https://fonts.googleapis.com/css?family=Slabo+13px|Open+Sans:300,400,600,700,800' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="{% static 'quizzical/style.css' %}">
     </head>
     <body>
-        <!-- {% if latest_question_list %}
-            <ul>
-                {% for question in latest_question_list %}
-                    <li><a href="{% url 'quizzical:detail' question.id %}">{{ question.question_text }}</a></li>
-                {% endfor %}
-            </ul>
-        {% else %}
-            <p>No questions available.</p>
-        {% endif %} -->
 
-        <div id="quizzical-app"></div>
+        <header class="Header Header--floating">
+            <a href="#" class="Header-brand">Quizzical</a>
+        </header>
+        <main id="quizzical-app"></main>
 
         {% render_bundle 'main' %}
     </body>

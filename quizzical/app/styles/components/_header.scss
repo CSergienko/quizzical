@@ -1,0 +1,52 @@
+.Header {
+    $scope: unquote("#{&}");
+
+    padding: 1rem;
+    background-color: $color--brand-greenMediumSea;
+    text-align: center;
+
+    &-brand {
+        display: inline-block;
+        color: $color--greyscale-white;
+        font-family: $font--family-slab;
+        font-size: 1.5rem;
+        letter-spacing: rem(5);
+        line-height: 1;
+        text-decoration: none;
+        text-shadow: 1px 1px 1px darken($color--brand-greenMediumSea, 20%);
+        text-transform: uppercase;
+    }
+
+    &--floating {
+        position: absolute;
+        right: 0;
+        left: 0;
+        width: rem(224);
+        margin: auto;
+        padding: 0;
+        padding-top: rem(35);
+        background-color: transparent;
+        text-align: center;
+        z-index: 100;
+
+        @include breakpoint(em(767)) {
+            width: rem(302);
+        }
+
+        #{$scope}-brand {
+            display: inline-block;
+            color: $color--greyscale-white;
+            font-family: $font--family-slab;
+            font-size: rem(35);
+            letter-spacing: rem(5);
+            line-height: 1;
+            text-decoration: none;
+            text-shadow: 1px 1px 1px #333;
+            text-transform: uppercase;
+
+            @include breakpoint(em(767)) {
+                font-size: rem(50);
+            }
+        }
+    }
+}
