@@ -11,9 +11,12 @@ class Category extends Component {
 
     render() {
         return (
-          <li>
-              <Link to={'/questions/' + this.props.category.id + '/'}>{this.props.category.category_text}</Link>
-          </li>
+            <Link to={'/questions/' + this.props.category.id + '/'} className="CategoryTile">
+                <header className="CategoryTile-header">
+                    <h1 className="CategoryTile-title">{this.props.category.category_text}</h1>
+                </header>
+                <img className="CategoryTile-image" src="http://www.placehold.it/1024x1024" alt="" />
+            </Link>
         )
     }
 }
