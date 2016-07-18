@@ -7,20 +7,83 @@
         <title>{% block title %}Quizzical{% endblock %}</title>
         {% load staticfiles %}
 
+        <link href='https://fonts.googleapis.com/css?family=Slabo+13px|Open+Sans:300,400,600,700,800' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="{% static 'quizzical/style.css' %}">
     </head>
     <body>
-        <!-- {% if latest_question_list %}
-            <ul>
-                {% for question in latest_question_list %}
-                    <li><a href="{% url 'quizzical:detail' question.id %}">{{ question.question_text }}</a></li>
-                {% endfor %}
-            </ul>
-        {% else %}
-            <p>No questions available.</p>
-        {% endif %} -->
 
         <div id="quizzical-app"></div>
+
+        <header class="Header Header--floating">
+            <a href="#" class="Header-brand">Quizzical</a>
+        </header>
+
+        <main>
+            <section class="Categories">
+                <article class="Categories-item">
+                    <a href="#" class="CategoryTile">
+                        <header class="CategoryTile-header">
+                            <h1 class="CategoryTile-title">Movies</h1>
+                        </header>
+                        <img class="CategoryTile-image" src="http://lorempixel.com/image_output/city-q-c-1280-1024-10.jpg" alt="" />
+                    </a>
+                </article>
+                <article class="Categories-item">
+                    <a href="#" class="CategoryTile">
+                        <header class="CategoryTile-header">
+                            <h1 class="CategoryTile-title">TV Shows</h1>
+                        </header>
+                        <img class="CategoryTile-image" src="http://lorempixel.com/image_output/city-q-c-1280-1024-10.jpg" alt="" />
+                    </a>
+                </article>
+                <article class="Categories-item">
+                    <a href="#" class="CategoryTile">
+                        <header class="CategoryTile-header">
+                            <h1 class="CategoryTile-title">Books</h1>
+                        </header>
+                        <img class="CategoryTile-image" src="http://lorempixel.com/image_output/city-q-c-1280-1024-10.jpg" alt="" />
+                    </a>
+                </article>
+            </section>
+
+
+
+            <section class="Questions">
+                <div class="Questions-item">
+                    <form action="">
+                        <fieldset class="Question">
+                            <legend class="Question-title">How much wood would a woodchuck chuck if a woodchuck could Chuck Norris?</legend>
+                            <ul class="Question-options">
+                                <li class="Question-option">
+                                    <input class="Question-input" type="radio" name="question" id="question1" value="1" />
+                                    <label class="Question-label" for="question1">
+                                        <span class="Question-checkbox"></span>
+                                        420
+                                    </label>
+                                </li>
+                                <li class="Question-option">
+                                    <input class="Question-input" type="radio" name="question" id="question2" value="2" />
+                                    <label class="Question-label" for="question2">
+                                        <span class="Question-checkbox"></span>
+                                        17
+                                    </label>
+                                </li>
+                                <li class="Question-option">
+                                    <input class="Question-input" type="radio" name="question" id="question3" value="3" />
+                                    <label class="Question-label" for="question3">
+                                        <span class="Question-checkbox"></span>
+                                        3.14159265359
+                                    </label>
+                                </li>
+                            </ul>
+                        </fieldset>
+                        <button type="submit" class="Questions-submit">
+                            Next Question
+                        </button>
+                    </form>
+                </div>
+            </section>
+        </main>
 
         {% render_bundle 'main' %}
     </body>

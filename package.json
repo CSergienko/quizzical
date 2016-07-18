@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --",
+    "build": "cd quizzical/ && webpack",
+    "watch": "cd quizzical/ && webpack --watch --colors --progress",
     "serve": "./ve/bin/python manage.py runserver",
     "migrate": "./ve/bin/python manage.py migrate",
     "hot": "node ./quizzical/hot-module-server.js",
@@ -71,6 +72,7 @@
     "sass-lint": "^1.5.1",
     "sass-loader": "^3.2.0",
     "sasslint-webpack-plugin": "^1.0.3",
+    "sassy-maps": "git+https://github.com/at-import/Sassy-Maps.git",
     "style-loader": "^0.13.1",
     "susy": "^2.2.12",
     "webpack": "^1.12.15",

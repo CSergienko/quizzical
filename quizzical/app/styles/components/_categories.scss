@@ -1,0 +1,22 @@
+.Categories {
+    $bem--blockName: unquote("#{&}");
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    @include breakpoint(767px) {
+        flex-direction: row;
+    }
+
+    &-item {
+        flex-basis: 100%;
+        flex-grow: 1;
+        width: 100%;
+
+        @include breakpoint(767px) {
+            flex-basis: 50%;
+            width: 50%;
+        }
+    }
+}

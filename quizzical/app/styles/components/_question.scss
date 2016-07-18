@@ -1,0 +1,82 @@
+.Question {
+    $bem--blockName: unquote("#{&}");
+
+    &-title {
+        display: block;
+        width: 100%;
+        margin-bottom: rem(20);
+        font-family: $font--family-slab;
+        font-size: rem(20);
+        line-height: 1.1;
+        text-align: center;
+
+        @include breakpoint(em(767)) {
+            font-size: rem(50);
+        }
+    }
+
+    &-option {
+        display: block;
+        flex-basis: 50%;
+        flex-grow: 1;
+
+        & + & {
+            margin-top: rem(25);
+        }
+    }
+
+    &-input {
+        position: absolute;
+        opacity: 0;
+        z-index: -100;
+    }
+
+    &-label {
+        display: block;
+        position: relative;
+        padding: rem(15);
+        transition: color .4s ease;
+        font-family: $font--family-sans;
+        font-size: rem(25);
+        font-weight: 600;
+        line-height: 1;
+        text-align: center;
+        cursor: pointer;
+
+        &:before,
+        &:after {
+            display: block;
+            position: absolute;
+            width: 0%;
+            height: 3px;
+            transition: width .4s ease;
+            background-color: $color--brand-greenMediumSea;
+            content: "";
+        }
+
+        &:before {
+            top: 0;
+            right: 0;
+        }
+
+        &:after {
+            bottom: 0;
+            left: 0;
+        }
+
+        &:hover {
+            color: $color--brand-greenLightSea;
+        }
+    }
+
+    &-input:checked {
+        & + #{$bem--blockName}-label {
+            color: $color--brand-greenMediumSea;
+
+            &:before,
+            &:after {
+                width: 100%;
+            }
+        }
+    }
+}

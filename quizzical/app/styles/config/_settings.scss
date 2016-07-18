@@ -1,0 +1,25 @@
+$color: (
+    brand: (
+        greenMediumSea: #44af69,
+        greenLightSea: #2b9eb3,
+        yellowTangerine: #fcab10,
+        pinkCarmine: #f8333c,
+        greyTimberWolf: #dbd5b5
+    ),
+    greyscale: (
+        white: #ffffff,
+        black: #000000,
+        grey: #666666
+    )
+);
+
+$breakpoint: (
+    alpha: em(320),
+    beta: em(480),
+    gamma: em(768),
+    delta: em(1024),
+    iota: em(1280),
+    eta: em(1600),
+    zeta: em(1920),
+    omega: em(2256)
+);

@@ -1,0 +1,79 @@
+.CategoryTile {
+    $bem--blockName: unquote("#{&}");
+
+    display: block;
+    position: relative;
+    height: 100vh;
+    background-color: $color--brand-greyTimberWolf;
+    overflow: hidden;
+
+    &-header {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        left: 0;
+        width: 70%;
+        margin: auto;
+        transform: translatey(-50%);
+        text-align: center;
+        z-index: 20;
+    }
+
+    &-title {
+        position: relative;
+        transition: transform .4s ease;
+        color: $color--greyscale-white;
+        font-size: rem(45);
+        font-weight: 300;
+        line-height: 1.618;
+        text-shadow: 0 0 1px darken($color--brand-greyTimberWolf, 30%);
+        text-transform: uppercase;
+        word-spacing: 3px;
+
+        &:before,
+        &:after {
+            display: block;
+            position: absolute;
+            width: 0%;
+            height: 3px;
+            transition: width .4s ease;
+            background-color: $color--greyscale-white;
+            content: "";
+        }
+
+        &:before {
+            right: 0;
+        }
+
+        &:after {
+            left: 0;
+        }
+    }
+
+    &-image {
+        display: block;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        max-width: 100%;
+        height: 100%;
+        transition: filter .4s ease;
+        filter: saturate(0%) opacity(80%);
+        object-fit: cover;
+        object-position: 50%;
+    }
+
+
+    &:hover {
+        #{$bem--blockName}-image {
+            filter: saturate(50%) opacity(95%);
+        }
+
+        #{$bem--blockName}-title {
+            &:before,
+            &:after {
+                width: 100%;
+            }
+        }
+    }
+}
