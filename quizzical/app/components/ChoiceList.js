@@ -8,10 +8,17 @@ class ChoiceList extends Component {
 
     render() {
         return (
-            <ul>
+            <ul className="Question-options">
                 {
                     this.props.question.choice_set.map((choice) => {
-                        return <Choice key={choice.id} choice={choice} actions={this.props.actions}/>
+                        return (
+                            <Choice
+                                key={choice.id}
+                                choice={choice}
+                                question={this.props.question}
+                                actions={this.props.actions}
+                            />
+                        )
                     })
                 }
              </ul>

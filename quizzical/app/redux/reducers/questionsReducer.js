@@ -12,7 +12,18 @@ function getId(questions) {
 let questionsReducer = function(questions = [], action) {
     switch (action.type) {
     case 'GET_QUESTIONS':
-        return Object.assign([], action.questions);
+        return [].concat(questions, action.questions);
+        // return questions.map((question) => {
+        //     return question.id !== action.id ?
+        //         Object.assign({}, question, action.question) : question
+        // })
+    case 'SET_USER_CHOICE':
+        return questions.map((question) => {
+            return question.id === action.questionId ?
+                Object.assign({}, question, {
+                    userChoice: action.choice
+                }) : question
+        });
     default:
         return questions
     }

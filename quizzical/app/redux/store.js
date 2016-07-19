@@ -6,7 +6,8 @@ import thunk from 'redux-thunk'
 
 // Apply thunk middleware to make async actions easier to handle
 let finalCreateStore = compose(
-  applyMiddleware(thunk, logger())
+  applyMiddleware(thunk, logger()),
+  window.devToolsExtension ? window.devToolsExtension() : f => f
 )(createStore)
 
 /**

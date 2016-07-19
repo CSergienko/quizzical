@@ -17,6 +17,21 @@ actions = {
         }
     },
 
+    setUserChoice: function (choice, questionId) {
+        return {
+            type: 'SET_USER_CHOICE',
+            choice: choice,
+            questionId: questionId
+        }
+    },
+
+    submitVotes: function (choice) {
+        return {
+            type: 'UPDATE_VOTES',
+            choice: choice
+        }
+    },
+
     getQuestionAsync: function (category) {
         return (dispatch) => {
             reqwest({

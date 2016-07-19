@@ -6,18 +6,13 @@ import Question from './Question'
 
 class QuestionList extends Component {
 
-    constructor(props) {
-        super(props);
-        this.props.actions.getQuestionAsync(this.props.params.id);
-    }
-
     componentDidMount() {
-        this.props.actions.getQuestionAsync(this.props.params.id);
+        this.props.actions.getQuestionAsync(this.props.params.category);
     }
 
     componentDidUpdate (prevProps) {
-        if (prevProps.params.id !== this.props.params.id) {
-            this.props.actions.getQuestionAsync(this.props.params.id);
+        if (prevProps.params.category !== this.props.params.category) {
+            this.props.actions.getQuestionAsync(this.props.params.category);
         }
     }
 
@@ -27,16 +22,12 @@ class QuestionList extends Component {
 
     render() {
         return (
-            <section class="Questions">
+            <section className="Questions">
                 {
                     this.props.questions.map((question, index) => {
                         if (parseInt(this.props.params.id) === index) {
                             return (
-                                <div class="Questions-item">
-                                    <form action="">
-                                        <Question key={index} question={question} actions={this.props.actions}/>
-                                    </form>
-                                </div>
+                                <Question key={index} question={question} actions={this.props.actions}/>
                             )
                         }
                     })

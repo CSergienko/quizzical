@@ -12,7 +12,7 @@ import configureStore from './redux/store';
 import { Provider } from 'react-redux';
 import { syncHistoryWithStore } from 'react-router-redux';
 
-require('./Quizzical.scss');
+require('./quizzical.scss');
 
 /* eslint-disable */
 let initialState = {
@@ -22,12 +22,13 @@ let initialState = {
     }],
     questions: [{
         id: 0,
-        question_text: '',
+        question_text: 'test',
         choice_set: [{
             id: 0,
             choice_text: '',
             votes: 0
-        }]
+        }],
+        userChoice: 0
     }]
 }
 /* eslint-enable */
