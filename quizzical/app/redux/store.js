@@ -14,7 +14,7 @@ let finalCreateStore = compose(
  * @param {object} initialState set initial state of redux application store
  * @return {int} Redux store decorated with thunk middleware
  */
-export default function configureStore(initialState = { questions: [], user: {} }) {
+export default function configureStore(initialState = { questions: [], categories: [] }) {
     return finalCreateStore(rootReducer, initialState)
 }/**
  * Created by peterringelmann on 2016/07/12.

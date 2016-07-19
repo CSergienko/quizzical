@@ -8,17 +8,21 @@ class QuestionList extends Component {
 
     constructor(props) {
         super(props);
-        this.props.actions.getQuestionAsync(this.props.params.id);
+        this.props.actions.getQuestionAsync(this.props.params.category);
     }
 
     componentDidMount() {
-        this.props.actions.getQuestionAsync(this.props.params.id);
+        this.props.actions.getQuestionAsync(this.props.params.category);
     }
 
     componentDidUpdate (prevProps) {
-        if (prevProps.params.id !== this.props.params.id) {
-            this.props.actions.getQuestionAsync(this.props.params.id);
+        if (prevProps.params.category !== this.props.params.category) {
+            this.props.actions.getQuestionAsync(this.props.params.category);
         }
+    }
+
+    componentWillUnmount() {
+        this.props.actions.updateQuestions([]);
     }
 
     render() {
@@ -27,15 +31,18 @@ class QuestionList extends Component {
                 <h1>Questions</h1>
                 <ul>
                     {
-                        this.props.questions.map((question) => {
-                            return <Question key={question.id} question={question} actions={this.props.actions}/>
+                        this.props.questions.map((question, index) => {
+                            if (parseInt(this.props.params.id) === index) {
+                                return (
+                                    <Question key={index} question={question} actions={this.props.actions}/>
+                                )
+                            }
                         })
                     }
                  </ul>
             </div>
         )
     }
-
 }
 
 function mapStateToProps(state) {

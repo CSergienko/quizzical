@@ -17,7 +17,7 @@ actions = {
         }
     },
 
-    getQuestionAsync: function (categoryId) {
+    getQuestionAsync: function (category) {
         return (dispatch) => {
             reqwest({
                 url: '/api/questions/',
@@ -28,7 +28,7 @@ actions = {
                     },
                     {
                         name: 'category',
-                        value: categoryId
+                        value: category
                     }
                 ]
             })
