@@ -37,6 +37,7 @@ class Question extends Component {
                           </label>
                       </li>
                   </ul>
+                  <ChoiceList question={this.props.question} actions={this.props.actions}/>
               </fieldset>
               <button type="submit" className="Questions-submit">
                   Next Question

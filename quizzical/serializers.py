@@ -16,18 +16,20 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
         fields = ('url', 'name')
 
 
-class QuestionSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Question
-        fields = ('question_text', 'id', 'category')
-
-
-class ChoiceSerializer(serializers.HyperlinkedModelSerializer):
+class ChoiceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Choice
-        fields = ('choice_text', 'votes', 'question')
+        fields = ('id', 'choice_text', 'votes')
+
+
+class QuestionSerializer(serializers.ModelSerializer):
+    choice_set = ChoiceSerializer(many=True ,read_only=True)
+    class Meta:
+        model = Question
+        fields = ('id', 'question_text', 'category', 'choice_set')
+
 
 class CategorySerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Category
-        fields = ('category_text', 'id')
+        fields = ('id', 'category_text', 'slug')

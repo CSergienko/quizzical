@@ -21,18 +21,24 @@ class QuestionList extends Component {
         }
     }
 
+    componentWillUnmount() {
+        this.props.actions.updateQuestions([]);
+    }
+
     render() {
         return (
             <section class="Questions">
                 {
-                    this.props.questions.map((question) => {
-                        return (
-                            <div class="Questions-item">
-                                <form action="">
-                                    <Question key={question.id} question={question} actions={this.props.actions}/>
-                                </form>
-                            </div>
-                        )
+                    this.props.questions.map((question, index) => {
+                        if (parseInt(this.props.params.id) === index) {
+                            return (
+                                <div class="Questions-item">
+                                    <form action="">
+                                        <Question key={index} question={question} actions={this.props.actions}/>
+                                    </form>
+                                </div>
+                            )
+                        }
                     })
                 }
             </section>

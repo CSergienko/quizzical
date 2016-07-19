@@ -64,13 +64,20 @@ class QuestionViewSet(viewsets.ModelViewSet):
         queryset = self.queryset
         category = self.request.query_params.get('category', None)
         if category is not None:
-            queryset = queryset.filter(category__pk=category)
+            queryset = queryset.filter(category__slug=category)
         return queryset
 
 
 class ChoiceViewSet(viewsets.ModelViewSet):
     queryset = Choice.objects.all()
     serializer_class = ChoiceSerializer
+
+    def get_queryset(self):
+        queryset = self.queryset
+        question = self.request.query_params.get('question', None)
+        if question is not None:
+            queryset = queryset.filter(question__pk=question)
+        return queryset
 
 class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all()

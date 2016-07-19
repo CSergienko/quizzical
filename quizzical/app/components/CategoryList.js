@@ -6,6 +6,11 @@ import Category from './Category'
 
 class CategoryList extends Component {
 
+    constructor(props) {
+        super(props);
+        this.props.actions.getCategoryAsync();
+    }
+
     render() {
         return (
             <section className="Categories">

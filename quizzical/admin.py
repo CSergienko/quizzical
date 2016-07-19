@@ -22,5 +22,10 @@ class CategoryAdmin(admin.ModelAdmin):
     model = Category
     extra = 3
 
+class ChoiceAdmin(admin.ModelAdmin):
+    model = Choice
+    extra = 3
+
 admin.site.register(Question, QuestionAdmin)
 admin.site.register(Category, CategoryAdmin)
+admin.site.register(Choice, ChoiceAdmin)
